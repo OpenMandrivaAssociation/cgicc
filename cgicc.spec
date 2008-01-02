@@ -15,6 +15,7 @@ License:	GPL
 Group:		Development/C
 URL:		http://www.gnu.org/software/cgicc
 Source:		ftp://ftp.gnu.org/gnu/cgicc/%{name}-%{version}.tar.bz2
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 GNU Cgicc is an ANSI C++ compliant class library that greatly
