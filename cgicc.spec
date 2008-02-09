@@ -1,20 +1,20 @@
 %define	name	cgicc
-%define version 3.2.3
-%define release %mkrel 3
+%define version 3.2.5
+%define release %mkrel 1
 
-%define major 1
+%define major 5
 %define libname %mklibname %{name} %major
-%define libnamedev %mklibname %{name} %major -d
+%define libnamedev %mklibname %{name} -d
 
 
 Summary:	Cgicc is an ANSI C++ class lib that simplifies the creation of CGI apps
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-License:	GPL
+License:	LGPLv3+
 Group:		Development/C
 URL:		http://www.gnu.org/software/cgicc
-Source:		ftp://ftp.gnu.org/gnu/cgicc/%{name}-%{version}.tar.bz2
+Source:		ftp://ftp.gnu.org/gnu/cgicc/%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
@@ -34,6 +34,7 @@ Web. Cgicc performs the following functions:
 %package -n %libname
 Summary:        Cgicc is an ANSI C++ class lib that simplifies the creation of CGI apps
 Group:          Development/C
+Obsoletes:	%mklibname cgicc 1
 
 %description -n %libname
 GNU Cgicc is an ANSI C++ compliant class library that greatly
@@ -54,6 +55,7 @@ Summary:        Cgicc is an ANSI C++ class lib that simplifies the creation of C
 Group:          Development/C
 Requires:	%libname = %version
 Provides: 	libcgicc-devel
+Obsoletes:	%mklibname -d cgicc 1
 
 %description -n %libnamedev
 GNU Cgicc is an ANSI C++ compliant class library that greatly
@@ -70,16 +72,20 @@ Web. Cgicc performs the following functions:
  - Supports HTTP file upload.
 
 %prep
-
 %setup -q
-
-%configure
+# remove stray GNUCAP_LDFLAGS
+# upstream bug: #22176
+sed -i \
+	-e 's/@GNUCAP_LDFLAGS@//' \
+	cgicc/Makefile.in
 
 %build
+%configure2_5x
+%make
 
 %install
-
-%makeinstall
+rm -fr %buildroot
+%makeinstall_std
 
 rm -rf $RPM_BUILD_ROOT/%_prefix/doc/
 rm -rf $RPM_BUILD_ROOT/%_docdir/%name-%version/example/.libs
@@ -99,11 +105,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %libname
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
 %files -n %libnamedev
 %defattr(-,root,root)
 %{_libdir}/*.so
 %{_libdir}/*.*a
 %_includedir/%name
-
