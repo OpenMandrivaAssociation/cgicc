@@ -6,7 +6,6 @@
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} -d
 
-
 Summary:	Cgicc is an ANSI C++ class lib that simplifies the creation of CGI apps
 Name:		%{name}
 Version:	%{version}
@@ -15,6 +14,7 @@ License:	LGPLv3+
 Group:		Development/C
 URL:		http://www.gnu.org/software/cgicc
 Source:		ftp://ftp.gnu.org/gnu/cgicc/%{name}-%{version}.tar.gz
+BuildRequires:	doxygen
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
