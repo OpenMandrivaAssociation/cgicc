@@ -1,6 +1,6 @@
 %define	name	cgicc
 %define version 3.2.5
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major 5
 %define libname %mklibname %{name} %major
