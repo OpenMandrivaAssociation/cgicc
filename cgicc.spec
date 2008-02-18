@@ -6,7 +6,7 @@
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} -d
 
-Summary:	Cgicc is an ANSI C++ class lib that simplifies the creation of CGI apps
+Summary:	ANSI C++ class lib that simplifies the creation of CGI apps
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
@@ -32,7 +32,7 @@ Web. Cgicc performs the following functions:
  - Supports HTTP file upload. 
 
 %package -n %libname
-Summary:        Cgicc is an ANSI C++ class lib that simplifies the creation of CGI apps
+Summary:        ANSI C++ class lib that simplifies the creation of CGI apps
 Group:          Development/C
 Obsoletes:	%mklibname cgicc 1
 
@@ -51,7 +51,7 @@ Web. Cgicc performs the following functions:
  - Supports HTTP file upload.
 
 %package -n %libnamedev
-Summary:        Cgicc is an ANSI C++ class lib that simplifies the creation of CGI apps
+Summary:        ANSI C++ class lib that simplifies the creation of CGI apps
 Group:          Development/C
 Requires:	%libname = %version
 Provides: 	libcgicc-devel
