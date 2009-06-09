@@ -1,6 +1,6 @@
 %define	name	cgicc
-%define version 3.2.5
-%define release %mkrel 4
+%define version 3.2.8
+%define release %mkrel 1
 
 %define major 5
 %define libname %mklibname %{name} %major
@@ -73,13 +73,14 @@ Web. Cgicc performs the following functions:
 
 %prep
 %setup -q
-# remove stray GNUCAP_LDFLAGS
-# upstream bug: #22176
-sed -i \
-	-e 's/@GNUCAP_LDFLAGS@//' \
-	cgicc/Makefile.in
+
+# fix doc files perms
+chmod 644 doc/html/* \
+	AUTHORS COPYING* ChangeLog NEWS README
+
 
 %build
+autoreconf -f -i
 %configure2_5x
 %make
 
@@ -87,8 +88,8 @@ sed -i \
 rm -fr %buildroot
 %makeinstall_std
 
-rm -rf $RPM_BUILD_ROOT/%_prefix/doc/
-rm -rf $RPM_BUILD_ROOT/%_docdir/%name-%version/example/.libs
+rm -rf %{buildroot}/%_prefix/doc/
+rm -rf %{buildroot}/%_docdir/%name-%version/example/.libs
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
@@ -99,11 +100,11 @@ rm -rf $RPM_BUILD_ROOT/%_docdir/%name-%version/example/.libs
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files 
 %defattr(-,root,root)
-#%doc AUTHORS COPYING ChangeLog NEWS README example
+%doc AUTHORS COPYING* ChangeLog NEWS README
 %doc doc/html/* 
 %_bindir/*
 
@@ -115,4 +116,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_libdir}/*.so
 %{_libdir}/*.*a
-%_includedir/%name
+%{_includedir}/%{name}
+%{_datadir}/aclocal/%{name}.m4
