@@ -1,2 +1,5 @@
+removed_sources:
+  cgicc-3.2.10.tar.gz: 2c7dd0997dc78aecd28016304ab8ec2502797e9b
+  cgicc-3.2.8.tar.gz: 6d9a8220cb06d44815f1707cf24f98f5a356bbf3
 sources:
-  "cgicc-3.2.8.tar.gz": 6d9a8220cb06d44815f1707cf24f98f5a356bbf3
+  cgicc-3.2.12.tar.gz: 7a707b99a5e13001ef2643fc8bdfc1b0a7492be8
