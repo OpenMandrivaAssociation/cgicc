@@ -85,8 +85,6 @@ rm -rf %{buildroot}/%{_docdir}/%{name}-%{version}/example/.libs
 
 %files 
 %doc AUTHORS COPYING* ChangeLog NEWS README
-%{_bindir}/*
-%exlude %{_bindir}/%{name}-config
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
