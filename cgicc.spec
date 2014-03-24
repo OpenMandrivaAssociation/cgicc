@@ -86,11 +86,13 @@ rm -rf %{buildroot}/%{_docdir}/%{name}-%{version}/example/.libs
 %files 
 %doc AUTHORS COPYING* ChangeLog NEWS README
 %{_bindir}/*
+%exlude %{_bindir}/%{name}-config
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
 
 %files -n %{libnamedev}
+%{_bindir}/%{name}-config
 %{_libdir}/*.so
 %{_libdir}/*.*a
 %{_libdir}/pkgconfig/*.pc
