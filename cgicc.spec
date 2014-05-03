@@ -4,13 +4,14 @@
 
 Summary:	ANSI C++ class lib that simplifies the creation of CGI apps
 
+
 Name:		cgicc
-Version:	3.2.13
+Version:	3.2.14
 Release:	1
 License:	LGPLv3+
 Group:		Development/C
 URL:		http://www.gnu.org/software/cgicc
-Source:		ftp://ftp.gnu.org:21/gnu/cgicc/%{name}-%{version}.tar.gz
+Source:		ftp://ftp.gnu.org:21/gnu/cgicc/%{name}-%{version}.tar.bz2
 BuildRequires:	doxygen
 
 %description
@@ -29,6 +30,7 @@ Web. Cgicc performs the following functions:
 
 %package -n %{libname}
 Summary:        ANSI C++ class lib that simplifies the creation of CGI apps
+
 
 Group:          Development/C
 Obsoletes:	%mklibname cgicc 1
@@ -49,6 +51,7 @@ Web. Cgicc performs the following functions:
 
 %package -n %{libnamedev}
 Summary:        ANSI C++ class lib that simplifies the creation of CGI apps
+
 
 Group:          Development/C
 Requires:	%{libname} = %{version}
@@ -99,4 +102,5 @@ rm -rf %{buildroot}/%{_docdir}/%{name}-%{version}/example/.libs
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/%{name}
 %{_datadir}/aclocal/%{name}.m4
+
 
