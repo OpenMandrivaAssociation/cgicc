@@ -6,7 +6,7 @@ Summary:	ANSI C++ class lib that simplifies the creation of CGI apps
 
 
 Name:		cgicc
-Version:	3.2.14
+Version:	3.2.15
 Release:	1
 License:	LGPLv3+
 Group:		Development/C
@@ -102,5 +102,3 @@ rm -rf %{buildroot}/%{_docdir}/%{name}-%{version}/example/.libs
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/%{name}
 %{_datadir}/aclocal/%{name}.m4
-
-
