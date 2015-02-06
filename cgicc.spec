@@ -5,7 +5,7 @@
 Summary:	ANSI C++ class lib that simplifies the creation of CGI apps
 Name:		cgicc
 Version:	3.2.15
-Release:	3
+Release:	4
 License:	LGPLv3+
 Group:		Development/C
 URL:		http://www.gnu.org/software/cgicc
