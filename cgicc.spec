@@ -8,7 +8,7 @@ Version:	3.2.15
 Release:	4
 License:	LGPLv3+
 Group:		Development/C
-URL:		http://www.gnu.org/software/cgicc
+URL:		https://www.gnu.org/software/cgicc
 Source:		ftp://ftp.gnu.org:21/gnu/cgicc/%{name}-%{version}.tar.bz2
 BuildRequires:	doxygen
 
