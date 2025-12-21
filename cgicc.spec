@@ -10,6 +10,11 @@ License:	LGPLv3+
 Group:		Development/C
 URL:		https://www.gnu.org/software/cgicc
 Source:		ftp://ftp.gnu.org:21/gnu/cgicc/%{name}-%{version}.tar.bz2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	doxygen
 
 %description
